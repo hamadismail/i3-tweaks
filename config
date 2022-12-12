@@ -374,7 +374,5 @@ default_floating_border pixel 0
 # Hides vertical and horizontal borders when there's only one window.
 #hide_edge_borders both
 
-
-
 #Window Compositor
 exec_always picom -f
