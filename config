@@ -119,8 +119,8 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  "
 set $ws2 "2:  "
-set $ws3 "3"
-set $ws4 "4"
+set $ws3 "3:  "
+set $ws4 "4:  "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -318,14 +318,14 @@ bindsym $mod+x exec i3lock
 # Window Colors
 
 set $bgcolor		#5294e2
-set $ibgcolor   	#383c4a
+set $ibgcolor   	#404552
 set $textcolor		#ffffff
 set $itextcolor 	#969696
 set $ubgcolor   	#ff0000
 
 
 #                       border		background	text		indicator
-client.focused          $bgcolor	$bgcolor	$textcolor	$bgcolor
+client.focused          #2F343F		#2F343F		$textcolor	#2F343F
 client.unfocused        $ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
 client.focused_inactive $ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
 client.urgent           $ubgcolor	$ubgcolor   	$textcolor	$ubgcolor
@@ -341,12 +341,12 @@ bar {
         
         colors {
                 background 	#2F343F
-                statusline 	#5294e2
-                separator 	#5294e2
+                statusline 	$bgcolor
+                separator 	$bgcolor
                 
 		#       		border		background	text
                 focused_workspace  	$bgcolor	$bgcolor	#2F343F
-                inactive_workspace 	#404552		#404552		#898d97
+                inactive_workspace 	$ibgcolor	$ibgcolor	$itextcolor
 		urgent_workspace	$ubgcolor	$ubgcolor	$textcolor
         }
 
@@ -368,13 +368,11 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 #default_border none
 
 # Default Window Borders
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 0
+default_floating_border pixel 0
 
 # Hides vertical and horizontal borders when there's only one window.
 #hide_edge_borders both
-
-
 
 #Window Compositor
 exec_always picom -f
