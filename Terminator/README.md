@@ -12,4 +12,5 @@ sudo nano /usr/share/applications/vim.desktop
 #Change terminal=false And Change Exec=terminator -e "vim %F"
 
 Exec=terminator -e "vim %F"
+
 Terminal=false
