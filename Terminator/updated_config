@@ -1,0 +1,28 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_fg_color = "#000000"
+    cursor_bg_color = "#aaaaaa"
+    font = Hack 10
+    scrollbar_position = hidden
+    palette = "#2f343f:#ff0011:#26a269:#f6981e:#5294e2:#865e3c:#0ac1d6:#efefef:#77767b:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
+    use_system_font = False
+    use_theme_colors = True
+    title_hide_sizetext = True
+    title_transmit_bg_color = "#2f343f"
+    title_inactive_fg_color = "#aaaaaa"
+    title_inactive_bg_color = "#2f343f"
+    title_font = Hack 10
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
