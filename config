@@ -48,6 +48,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start emoji-picker
+bindsym $mod+period exec emoji-picker
+
 # start a terminal
 bindsym $mod+Return exec terminator
 
