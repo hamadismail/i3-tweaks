@@ -55,7 +55,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start emoji-picker
 bindsym $mod+period exec emoji-picker
@@ -68,7 +68,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -nf '#BBBBBB' -nb '#2F343F' -sb '#5294e2' -sf '#EEEEEE' -fn 'hack-10'
-#bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym Control+space exec --no-startup-id rofi -show drun
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -348,23 +348,23 @@ client.urgent           $ubgcolor	$ubgcolor   	$textcolor	$ubgcolor
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-bar {
-        status_command i3blocks -c /home/hamad/.config/i3blocks/i3blocks.conf
-        
-        colors {
-                background 	#2F343F
-                statusline 	$bgcolor
-                separator 	$bgcolor
-                
-		#       		border		background	text
-                focused_workspace  	$bgcolor	$bgcolor	#2F343F
-                inactive_workspace 	$ibgcolor	$ibgcolor	$itextcolor
-		urgent_workspace	$ubgcolor	$ubgcolor	$textcolor
-        }
-
-	# Height in pixels
-    	  height 22
-}
+# bar {
+#       status_command i3blocks -c /home/hamad/.config/i3blocks/i3blocks.conf
+#       
+#       colors {
+#               background 	#2F343F
+#               statusline 	$bgcolor
+#               separator 	$bgcolor
+#               
+#       		#                   border      background	text
+#               focused_workspace  	$bgcolor	$bgcolor	#2F343F
+#               inactive_workspace 	$ibgcolor	$ibgcolor	$itextcolor
+#       		urgent_workspace	$ubgcolor	$ubgcolor	$textcolor
+#       }
+#
+#               # Height in pixels
+#   	        height 22
+#
 
 #Display Wallpaper
 exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/arch.png
