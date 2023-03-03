@@ -23,6 +23,9 @@ font pango:Hack 9
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Polybar Launch Script
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # Start Conky
 exec --no-startup-id conky
 
