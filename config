@@ -19,6 +19,10 @@ font pango:Hack 9
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+###############################################################
+# i3 autostart
+###############################################################
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -29,7 +33,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 # Start Conky
 exec --no-startup-id conky
 
-# Start polkit agents
+# Start polkit agents authentication
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -43,6 +47,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 # exec --no-startup-id nm-applet
 
+
+###########################################################################
+# i3 audio volume
+###########################################################################
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -50,6 +59,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
+##########################################################################
+# i3 navigation
+##########################################################################
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -77,6 +90,11 @@ bindsym Control+space exec --no-startup-id rofi -show drun
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+
+#########################################
+# i3 change window focus
+#########################################
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -88,6 +106,20 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+
+######################################################
+# i3 window orientation
+######################################################
 
 # move focused window
 bindsym $mod+Shift+j move left
@@ -118,21 +150,17 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+#########################################
+# i3 workspaces
+#########################################
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:  "
-set $ws2 "2:  "
-set $ws3 "3:  "
-set $ws4 "4:  "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -164,15 +192,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+############################################
 # I3 Gaps
-
+############################################
 gaps inner 10
 gaps outer 5
 
@@ -297,6 +320,11 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
+
+############################################################
+# i3 resize window
+############################################################
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -324,50 +352,62 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Keybinding fo i3lock
-bindsym $mod+x exec i3lock
+
+##############################################################
+# i3 appearance 
+##############################################################
 
 # Window Colors
 
-set $bgcolor		#5294e2
-set $ibgcolor   	#404552
-set $textcolor		#ffffff
-set $itextcolor 	#969696
-set $ubgcolor   	#ff0000
+set $bgcolor            #5294e2
+set $ibgcolor           #404552
+set $textcolor          #ffffff
+set $itextcolor         #969696
+set $ubgcolor           #ff0000
 
+#                       border          background      text            indicator
+client.focused          #2F343F         #6272a4         $textcolor      #2F343F
+client.unfocused        $ibgcolor       #44475a         $itextcolor     $ibgcolor
+client.focused_inactive $ibgcolor       $ibgcolor       $itextcolor     $ibgcolor
+client.urgent           $ubgcolor       $ubgcolor       $textcolor      $ubgcolor
 
-#                       border		background	text		indicator
-client.focused          #2F343F		#2F343F		$textcolor	#2F343F
-client.unfocused        $ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
-client.focused_inactive $ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
-client.urgent           $ubgcolor	$ubgcolor   	$textcolor	$ubgcolor
+# Default Window Borders
+default_border pixel 2
+default_floating_border pixel 0
 
+#for_window [class="^.*"] border pixel 1
+#default_border none
 
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-# bar {
-#       status_command i3blocks -c /home/hamad/.config/i3blocks/i3blocks.conf
-#       
-#       colors {
-#               background 	#2F343F
-#               statusline 	$bgcolor
-#               separator 	$bgcolor
-#               
-#       		#                   border      background	text
-#               focused_workspace  	$bgcolor	$bgcolor	#2F343F
-#               inactive_workspace 	$ibgcolor	$ibgcolor	$itextcolor
-#       		urgent_workspace	$ubgcolor	$ubgcolor	$textcolor
-#       }
-#
-#               # Height in pixels
-#   	        height 22
-#
+# Hides vertical and horizontal borders when there's only one window.
+#hide_edge_borders both
 
 #Display Wallpaper
 exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/arch.png
+
+#Window Compositor
+exec_always picom -f
+
+
+##############################################################
+# i3 powermenu
+##############################################################
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Keybinding fo i3lock
+bindsym $mod+x exec i3lock
+
+
+###################################################################
+# i3 screenshots
+###################################################################
 
 ##  Screenshots in files
 bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot_$(TZ='Asia/Dhaka' date +'%d_%m_%Y_%H:%M:%S')_all.png"
@@ -378,16 +418,3 @@ bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER
 bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
-
-#for_window [class="^.*"] border pixel 1
-#default_border none
-
-# Default Window Borders
-default_border pixel 0
-default_floating_border pixel 0
-
-# Hides vertical and horizontal borders when there's only one window.
-#hide_edge_borders both
-
-#Window Compositor
-exec_always picom -f
