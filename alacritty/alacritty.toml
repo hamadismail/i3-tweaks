@@ -74,3 +74,10 @@ background = "#f1fa8c"
 
 foreground = "#f1fa8c"
 background = "#282a36"
+
+
+# Font config:
+[font]
+normal = { family = "JetbrainsMono", style = "Regular"}
+size = 12
+
