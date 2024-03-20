@@ -382,7 +382,7 @@ default_floating_border pixel 0
 #hide_edge_borders both
 
 #Display Wallpaper
-exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/arch.png
+exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/Minimal-Nord.png
 
 #Window Compositor
 exec_always picom -f
@@ -418,3 +418,8 @@ bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER
 bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+
+#################################################################
+# Autostart ibus-daemon
+#################################################################
+exec_always --no-startup-id ibus-daemon -d -r -x 
