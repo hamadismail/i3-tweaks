@@ -5,7 +5,10 @@ This repository contains my custom configurations and customizations for the i3 
 ## Screenshots
 
 ### Old Configuration
-![Old Configuration](screenshots/old-config-1.png)
+<p float="left">
+  <img src="screenshots/old-config-1.png" alt="Old Configuration 1" width="400" />
+  <img src="screenshots/old-config-2.png" alt="Old Configuration 2" width="400" />
+</p>
 
 ### New Configuration
 
