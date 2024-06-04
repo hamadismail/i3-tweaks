@@ -77,7 +77,7 @@ bindsym $mod+period exec rofi -show emoji
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -nf '#BBBBBB' -nb '#2F343F' -sb '#5294e2' -sf '#EEEEEE' -fn 'hack-10'
