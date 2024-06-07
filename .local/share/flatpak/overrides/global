@@ -1,5 +1,5 @@
 [Context]
-filesystems=$HOME;
+filesystems=home;
 
 [Environment]
 GTK_THEME=Arc-Dark
