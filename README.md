@@ -1,4 +1,4 @@
-# i3 Configurations
+# i3 Tweaks
 
 This repository contains my custom configurations and customizations for the i3 window manager on Linux. It includes my old configuration for comparison with the new setup.
 
@@ -32,6 +32,32 @@ To use these configurations, follow these steps:
     ```
 
 4. Restart i3 to apply the new configurations.
+
+## Configuration
+
+### Flatpak
+
+To configure flatpak, follow these steps:
+
+1. Get access the filesystem:\
+    System mode 
+    ```bash
+    sudo flatpak override --filesystem=$HOME
+    ```
+    User mode
+    ```bash
+    flatpak --user override --filesystem=$HOME
+    ```
+
+2. Get access the themes and icons:\
+    For color theme
+    ```bash
+    flatpak --user override --env=GTK_THEME=Theme-name
+    ```
+    For icon theme
+    ```bash
+    flatpak --user override --env=ICON_THEME=Icon-name
+    ```
 
 ## Usage
 
