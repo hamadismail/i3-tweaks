@@ -1,6 +1,6 @@
 # i3 Tweaks
 
-This repository contains configurations and customizations for the i3 window manager on Linux includes required packages.
+This repository contains configurations and customizations for the i3 window manager on Linux include required packages.
 
 ## Screenshots
 
