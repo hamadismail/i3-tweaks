@@ -1,0 +1,6 @@
+[Context]
+filesystems=home;
+
+[Environment]
+GTK_THEME=Arc-Dark
+ICON_THEME=Papirus-Dark
