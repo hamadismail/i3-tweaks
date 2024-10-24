@@ -91,6 +91,9 @@ bindsym Control+space exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 
+# start browser
+bindsym $mod+b exec --no-startup-id google-chrome-stable
+
 #########################################
 # i3 change window focus
 #########################################
