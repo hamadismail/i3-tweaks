@@ -65,7 +65,7 @@ To configure flatpak, follow these steps:
    flatpak run --command=xdg-open com.spotify.Client https://www.google.com
    ```
    That is supposed to request a new browser tab or window, requested from within the sandbox <br>
-
+   <br>
    Check if xdg-desktop-portal is installed
    ```bash
    sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gtk
