@@ -75,7 +75,7 @@ To configure flatpak, follow these steps:
    systemctl --user restart xdg-desktop-portal
    systemctl --user restart xdg-desktop-portal-gtk
    ```
-   Fixing postnab crashing issue:\
+   Fixing postman crashing issue:\
    Go to the location
    ```bash
    ~/.var/app/com.getpostman.Postman/config/Postman/proxy
