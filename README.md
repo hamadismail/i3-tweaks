@@ -70,7 +70,7 @@ To configure flatpak, follow these steps:
    ```bash
    sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gtk
    ```
-   Restart the portal services:
+   Restart the portal services:\
    ```bash
    systemctl --user restart xdg-desktop-portal
    systemctl --user restart xdg-desktop-portal-gtk
