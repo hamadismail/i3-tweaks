@@ -153,6 +153,13 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# default floating
+for_window [window_role="About"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="Alacritty"] floating enable
+
+## use `xprop` command to see class name for windows
 
 #########################################
 # i3 workspaces
@@ -357,7 +364,7 @@ bindsym $mod+r mode "resize"
 
 
 ##############################################################
-# i3 appearance 
+# i3 appearance
 ##############################################################
 
 # Window Colors
@@ -425,4 +432,4 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip
 #################################################################
 # Autostart ibus-daemon
 #################################################################
-exec_always --no-startup-id ibus-daemon -d -r -x 
+exec_always --no-startup-id ibus-daemon -d -r -x
