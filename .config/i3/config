@@ -163,6 +163,16 @@ for_window [title="Open Folder"] resize set 800 600
 
 ## use `xprop` command to see class name for windows
 
+# Default Window Borders
+default_border pixel 2
+default_floating_border pixel 2
+
+#for_window [class="^.*"] border pixel 1
+#default_border none
+
+# Hides vertical and horizontal borders when there's only one window.
+#hide_edge_borders both
+
 #########################################
 # i3 workspaces
 #########################################
@@ -382,16 +392,6 @@ client.focused          #2F343F         #6272a4         $textcolor      #2F343F
 client.unfocused        $ibgcolor       #44475a         $itextcolor     $ibgcolor
 client.focused_inactive $ibgcolor       $ibgcolor       $itextcolor     $ibgcolor
 client.urgent           $ubgcolor       $ubgcolor       $textcolor      $ubgcolor
-
-# Default Window Borders
-default_border pixel 2
-default_floating_border pixel 0
-
-#for_window [class="^.*"] border pixel 1
-#default_border none
-
-# Hides vertical and horizontal borders when there's only one window.
-#hide_edge_borders both
 
 #Display Wallpaper
 exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/Minimal-Nord.png
