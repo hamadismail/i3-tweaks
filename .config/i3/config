@@ -158,6 +158,8 @@ for_window [window_role="About"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Alacritty"] floating enable
+for_window [title="Open File"] resize set 800 600
+for_window [title="Open Folder"] resize set 800 600
 
 ## use `xprop` command to see class name for windows
 
