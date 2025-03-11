@@ -86,50 +86,50 @@ To configure flatpak, follow these steps:
    ```
 
 ### Disk Encryption and Decryption Using LUKS
-🔐 Create Disk Encryption:\
+🔐 Create Disk Encryption:
 1. Add Disk Encryption
-```
-sudo cryptsetup -y luksFormat /dev/sdX
-```
-replace X with your disk
+  ```
+  sudo cryptsetup -y luksFormat /dev/sdX
+  ```
+  replace X with your disk
 
 2. Open Encrypted Disk
-```
-sudo cryptsetup -v luksOpen /dev/sdX <name-encrypted-disk>
-```
+  ```
+  sudo cryptsetup -v luksOpen /dev/sdX <name-encrypted-disk>
+  ```
 
 3. Format the Encrypted Disk
-```
-sudo mkfs.exfat /dev/mapper/<name-encrypted-disk>
-```
+  ```
+  sudo mkfs.exfat /dev/mapper/<name-encrypted-disk>
+  ```
 
 4. Mount the Encrypted Disk
-```
-sudo mount /dev/mapper/<name-encrypted-disk> /mnt/<directory-name>
-```
+  ```
+  sudo mount /dev/mapper/<name-encrypted-disk> /mnt/<directory-name>
+  ```
 
 5. Unmount the Encrypted Disk
-```
-sudo umount /mnt/<directory-name>
-```
+  ```
+  sudo umount /mnt/<directory-name>
+  ```
 
 6. Close the Encrypted Disk
-```
-sudo cryptsetup -v luksClose <name-encrypted-disk>
-```
+  ```
+  sudo cryptsetup -v luksClose <name-encrypted-disk>
+  ```
 
 ---
 
-❌ Remove Disk Encryption:\
+❌ Remove Disk Encryption:
 1. (Erase Disk)
-```
-sudo cryptsetup erase /dev/sdX
-```
+  ```
+  sudo cryptsetup erase /dev/sdX
+  ```
 
 2. Format the Disk for Normal Use
-```
-sudo mkfs.exfat /dev/sdX
-```
+  ```
+  sudo mkfs.exfat /dev/sdX
+  ```
 
 
 ## Usage
