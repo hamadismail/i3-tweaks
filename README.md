@@ -4,13 +4,13 @@ This repository contains configurations and customizations for the i3 window man
 
 ## Screenshots
 
-### Old Configuration
+### Old Configuration View
 <p float="left">
   <img src="screenshots/old-config-1.png" alt="Old Configuration 1" width="400" />
   <img src="screenshots/old-config-2.png" alt="Old Configuration 2" width="400" />
 </p>
 
-### New Configuration
+### New Configuration View
 
 ## Installation
 
@@ -84,6 +84,53 @@ To configure flatpak, follow these steps:
    ```bash
    openssl req -subj '/C=US/CN=Postman Proxy' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout postman-proxy-ca.key -out postman-proxy-ca.crt
    ```
+
+### Disk Encryption and Decryption Using LUKS
+🔐 Create Disk Encryption:\
+1. Add Disk Encryption
+```
+sudo cryptsetup -y luksFormat /dev/sdX
+```
+replace X with your disk
+
+2. Open Encrypted Disk
+```
+sudo cryptsetup -v luksOpen /dev/sdX <name-encrypted-disk>
+```
+
+3. Format the Encrypted Disk
+```
+sudo mkfs.exfat /dev/mapper/<name-encrypted-disk>
+```
+
+4. Mount the Encrypted Disk
+```
+sudo mount /dev/mapper/<name-encrypted-disk> /mnt/<directory-name>
+```
+
+5. Unmount the Encrypted Disk
+```
+sudo umount /mnt/<directory-name>
+```
+
+6. Close the Encrypted Disk
+```
+sudo cryptsetup -v luksClose <name-encrypted-disk>
+```
+
+---
+
+❌ Remove Disk Encryption:\
+1. (Erase Disk)
+```
+sudo cryptsetup erase /dev/sdX
+```
+
+2. Format the Disk for Normal Use
+```
+sudo mkfs.exfat /dev/sdX
+```
+
 
 ## Usage
 
