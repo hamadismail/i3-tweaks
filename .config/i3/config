@@ -28,7 +28,7 @@ font pango:Hack 9
 exec --no-startup-id dex --autostart --environment i3
 
 # Polybar Launch Script
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh --cuts &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Start Conky
 exec --no-startup-id conky
@@ -395,7 +395,7 @@ client.focused_inactive $ibgcolor       $ibgcolor       $itextcolor     $ibgcolo
 client.urgent           $ubgcolor       $ubgcolor       $textcolor      $ubgcolor
 
 #Display Wallpaper
-exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/Minimal-Nord.png
+exec_always feh --bg-fill /home/hamad/Pictures/Wallpapers/004.png
 
 #Window Compositor
 exec_always picom -f
