@@ -131,6 +131,15 @@ To configure flatpak, follow these steps:
   sudo mkfs.exfat /dev/sdX
   ```
 
+### Check Disk Read and Write Speed
+Write Speed:
+```
+sudo dd if=/dev/zero of=testfile bs=1M count=1024 oflag=direct
+```
+Read Speed:
+```
+sudo dd if=testfile of=/dev/zero bs=1M count=1024 iflag=direct
+```
 
 ## Usage
 
